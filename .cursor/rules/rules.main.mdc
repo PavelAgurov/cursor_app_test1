@@ -3,4 +3,11 @@ description:
 globs: 
 alwaysApply: true
 ---
-For every change that you're working on - please make sure that corresponding detailed requirements are reflected in requirements.md file, use User Story framework, but keep it on detailed level defining every button, every interaction, every screen, every flow reflected here in a structured way.
+For every change that you're working on, please make sure that the corresponding detailed requirements are reflected in the requirements.md file. Use the User Story framework, but keep it detailed, defining every button, every interaction, every screen, and every flow in a structured way.
+
+Make only changes that were directly asked for. Do not add code that was not asked for directly.
+
+Use the best practices for both front-end and back-end:
+- Do not inline styles into code; use CSS.
+- Do not hard-code data; put data into the data folder.
+- Do not create code duplication.
