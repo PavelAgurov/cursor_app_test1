@@ -8,9 +8,9 @@ export const dashboardItems: DashboardItem[] = [
     icon: 'award'
   },
   {
-    id: 'query',
-    title: 'Raise a query',
-    description: 'Having a trouble? Raise a query to our service desk',
+    id: 'complaint',
+    title: 'Submit a complaint',
+    description: 'Having a trouble? Submit a complaint to our service desk',
     icon: 'alert-triangle'
   },
   {

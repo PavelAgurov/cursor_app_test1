@@ -127,7 +127,7 @@ As an authenticated user, I want to see a dashboard with various service options
    - Card background color: #EEF3FF
 3. Cards include:
    - Promotions: Find best suitable promotions for your needs
-   - Raise a query: Having a trouble? Raise a query to our service desk
+   - Submit a complaint: Having a trouble? Submit a complaint to our service desk
    - Policies: Get detailed information about policies in Odido
    - Benefits: Get detailed information about policies in Odido
    - Two placeholder cards with "Title" and Lorem ipsum text
