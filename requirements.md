@@ -233,4 +233,56 @@ As a user, I want to submit a complaint through a structured form to report issu
    - Typography hierarchy for readability
 2. Responsive Design
    - Adapts to different screen sizes
-   - Maintains usability on mobile devices 
+   - Maintains usability on mobile devices
+
+## User Story: Chatbot Interface
+
+### Description
+As a user, I want to access a chatbot interface from the dashboard to get quick assistance and answers to my queries.
+
+### Detailed Requirements
+
+#### UI Components
+1. Chat Button
+   - Fixed position in the bottom-right corner of the screen
+   - Orange circular button with message icon
+   - Hover animation for visual feedback
+   - Opens the chatbot interface when clicked
+
+2. Chatbot Interface
+   - Popup window with clean white background
+   - Header with chatbot name and controls
+   - Message area showing conversation history
+   - User messages right-aligned with blue background
+   - Bot messages left-aligned with light orange background
+   - Input field at the bottom for typing queries
+   - Quick option buttons for common requests (e.g., HR queries)
+
+3. Input Controls
+   - Text input field for typing questions
+   - Microphone button for potential voice input
+   - Send button to submit the typed message
+   - Support for keyboard shortcuts (Enter to send)
+
+#### Interaction
+1. Behavior
+   - Initial greeting message when opened
+   - Quick response to user messages
+   - Support for quick option selection
+   - Auto-scrolls to latest messages
+   - Responsive design for various screen sizes
+
+2. Workflow
+   - User clicks chat button to open interface
+   - User can type a query or select from quick options
+   - Chatbot responds with relevant information
+   - Conversation history is maintained during the session
+
+#### Non-Functional Requirements
+1. Performance
+   - Quick response times for message display
+   - Smooth animations for better user experience
+2. Accessibility
+   - Keyboard navigation support
+   - Clear visual hierarchy
+   - Descriptive button labels for screen readers 

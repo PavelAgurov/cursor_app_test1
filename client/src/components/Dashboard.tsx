@@ -11,6 +11,7 @@ import {
 import { dashboardItems } from '../data/dashboardData';
 import Header from './Header';
 import ComplaintForm from './ComplaintForm';
+import Chatbot from './Chatbot';
 import './Dashboard.css';
 
 interface DashboardProps {
@@ -20,6 +21,7 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = ({ username, onLogout }) => {
   const [showComplaintForm, setShowComplaintForm] = useState<boolean>(false);
+  const [showChatbot, setShowChatbot] = useState<boolean>(false);
   
   // Map icon string to the corresponding react-feather component
   const getIcon = (iconName: string) => {
@@ -56,6 +58,10 @@ const Dashboard: React.FC<DashboardProps> = ({ username, onLogout }) => {
     setShowComplaintForm(false);
   };
 
+  const toggleChatbot = () => {
+    setShowChatbot(prevState => !prevState);
+  };
+
   return (
     <div className="dashboard">
       <Header username={username} onLogout={onLogout} />
@@ -89,10 +95,21 @@ const Dashboard: React.FC<DashboardProps> = ({ username, onLogout }) => {
       )}
       
       <div className="chat-button-container">
-        <button className="chat-button" aria-label="Chat">
+        <button 
+          className="chat-button" 
+          aria-label="Chat"
+          onClick={toggleChatbot}
+        >
           <MessageSquare size={24} color="#fff" />
         </button>
       </div>
+
+      {showChatbot && (
+        <Chatbot
+          username={username}
+          onClose={() => setShowChatbot(false)}
+        />
+      )}
     </div>
   );
 };
