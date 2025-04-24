@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="240" height="60">
+  <!-- Circle gradient from green to blue -->
+  <circle cx="50" cy="50" r="40" fill="url(#circle1-gradient)" />
+  
+  <!-- Half circle gradient from light green to green -->
+  <path d="M100,50 a40,40 0 0,1 -40,40 a40,40 0 0,1 0,-80 a40,40 0 0,1 40,40" fill="url(#circle2-gradient)" />
+  
+  <!-- Rectangle gradient from yellow to orange -->
+  <rect x="170" y="10" width="30" height="80" fill="url(#rect-gradient)" />
+  
+  <!-- Half circle gradient from orange to red -->
+  <path d="M270,50 a40,40 0 0,1 -40,40 a40,40 0 0,1 0,-80 a40,40 0 0,1 40,40" fill="url(#circle3-gradient)" transform="scale(-1, 1) translate(-500, 0)" />
+  
+  <!-- Circle gradient from red to purple -->
+  <circle cx="350" cy="50" r="40" fill="url(#circle4-gradient)" />
+  
+  <!-- Gradients definitions -->
+  <defs>
+    <linearGradient id="circle1-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50" />
+      <stop offset="100%" stop-color="#2196F3" />
+    </linearGradient>
+    
+    <linearGradient id="circle2-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8BC34A" />
+      <stop offset="100%" stop-color="#4CAF50" />
+    </linearGradient>
+    
+    <linearGradient id="rect-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFC107" />
+      <stop offset="100%" stop-color="#FF9800" />
+    </linearGradient>
+    
+    <linearGradient id="circle3-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9800" />
+      <stop offset="100%" stop-color="#F44336" />
+    </linearGradient>
+    
+    <linearGradient id="circle4-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F44336" />
+      <stop offset="100%" stop-color="#9C27B0" />
+    </linearGradient>
+  </defs>
+</svg> 

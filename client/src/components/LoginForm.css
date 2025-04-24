@@ -1,0 +1,116 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FFF0D7;
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.logo-container {
+  background-color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.odido-logo {
+  height: 50px;
+}
+
+.login-form-container {
+  background-color: #FFF0D7;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.login-subtitle {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #FF924E;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.error-message {
+  color: #e53935;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.sign-in-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.sign-in-button:hover {
+  background-color: #222;
+}
+
+.sign-in-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.register-link {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-link a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+}
+
+.copyright a {
+  color: #FF924E;
+  text-decoration: none;
+} 
