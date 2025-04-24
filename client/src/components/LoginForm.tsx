@@ -96,11 +96,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
           </form>
           
           <div className="register-link">
-            <a href="#">Not a user? Register now.</a>
+            <button className="text-button" type="button" onClick={() => alert('Registration not available in this version')}>
+              Not a user? Register now.
+            </button>
           </div>
           
           <div className="copyright">
-            <a href="#">Copyright details</a>
+            <button className="text-button" type="button" onClick={() => alert('Copyright information not available in this version')}>
+              Copyright details
+            </button>
           </div>
         </div>
       </div>

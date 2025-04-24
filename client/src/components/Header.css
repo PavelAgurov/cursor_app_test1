@@ -46,6 +46,16 @@
   align-items: center;
 }
 
+.username-display {
+  font-size: 14px;
+  margin-right: 12px;
+  color: #555;
+  white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .logout-button {
   padding: 8px 12px;
   background-color: #f44336;
@@ -82,4 +92,16 @@
 .user-avatar:hover {
   transform: scale(1.05);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Make sure our header is responsive on small screens */
+@media (max-width: 480px) {
+  .username-display {
+    display: none;
+  }
+  
+  .logout-button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 } 

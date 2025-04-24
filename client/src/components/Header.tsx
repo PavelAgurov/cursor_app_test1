@@ -18,10 +18,11 @@ const Header: React.FC<HeaderProps> = ({ username, onLogout }) => {
           <h1 className="header-title">My dashboard</h1>
         </div>
         <div className="header-right">
+          {username && <span className="username-display">{username}</span>}
           <button className="logout-button" onClick={onLogout}>
             Logout
           </button>
-          <div className="user-avatar">
+          <div className="user-avatar" title={username}>
             <User size={24} color="#333" />
           </div>
         </div>
