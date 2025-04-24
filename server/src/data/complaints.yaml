@@ -1,0 +1,29 @@
+complaints:
+  - id: '1'
+    owner: admin
+    creationDate: '2023-04-15T10:30:00.000Z'
+    status: done
+    text: >-
+      Network connectivity issues in the office. Internet drops frequently
+      during video calls.
+  - id: '2'
+    owner: user
+    creationDate: '2023-05-20T14:45:00.000Z'
+    status: in progress
+    text: >-
+      Mobile app crashes when trying to update profile information. Please fix
+      this issue.
+  - id: '3'
+    owner: admin
+    creationDate: '2023-06-10T09:15:00.000Z'
+    status: created
+    text: >-
+      Billing discrepancy found in my last invoice. The amount charged does not
+      match my subscription plan.
+  - id: '4'
+    owner: test
+    creationDate: '2023-06-25T16:20:00.000Z'
+    status: in progress
+    text: >-
+      Customer service response time is too long. It took more than 48 hours to
+      get a reply.

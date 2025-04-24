@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   MessageSquare,
   Award,
@@ -10,6 +10,7 @@ import {
 } from 'react-feather';
 import { dashboardItems } from '../data/dashboardData';
 import Header from './Header';
+import ComplaintForm from './ComplaintForm';
 import './Dashboard.css';
 
 interface DashboardProps {
@@ -18,6 +19,8 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ username, onLogout }) => {
+  const [showComplaintForm, setShowComplaintForm] = useState<boolean>(false);
+  
   // Map icon string to the corresponding react-feather component
   const getIcon = (iconName: string) => {
     switch(iconName) {
@@ -38,23 +41,52 @@ const Dashboard: React.FC<DashboardProps> = ({ username, onLogout }) => {
     }
   };
 
+  const handleItemClick = (id: string) => {
+    if (id === 'complaint') {
+      setShowComplaintForm(true);
+    }
+  };
+
+  const handleComplaintSubmitSuccess = () => {
+    setShowComplaintForm(false);
+    alert('Complaint submitted successfully!');
+  };
+
+  const handleComplaintCancel = () => {
+    setShowComplaintForm(false);
+  };
+
   return (
     <div className="dashboard">
       <Header username={username} onLogout={onLogout} />
       
-      <main className="dashboard-content">
-        <div className="dashboard-grid">
-          {dashboardItems.map(item => (
-            <div key={item.id} className="dashboard-item">
-              <div className="dashboard-item-content">
-                {getIcon(item.icon)}
-                <h3 className="dashboard-item-title">{item.title}</h3>
-                <p className="dashboard-item-description">{item.description}</p>
-              </div>
-            </div>
-          ))}
+      {showComplaintForm ? (
+        <div className="complaint-form-overlay">
+          <ComplaintForm 
+            username={username}
+            onSubmitSuccess={handleComplaintSubmitSuccess}
+            onCancel={handleComplaintCancel}
+          />
         </div>
-      </main>
+      ) : (
+        <main className="dashboard-content">
+          <div className="dashboard-grid">
+            {dashboardItems.map(item => (
+              <div 
+                key={item.id} 
+                className="dashboard-item"
+                onClick={() => handleItemClick(item.id)}
+              >
+                <div className="dashboard-item-content">
+                  {getIcon(item.icon)}
+                  <h3 className="dashboard-item-title">{item.title}</h3>
+                  <p className="dashboard-item-description">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      )}
       
       <div className="chat-button-container">
         <button className="chat-button" aria-label="Chat">

@@ -189,4 +189,48 @@ As an authenticated user, I want to click a "Hello" button on the webpage and re
 #### Non-Functional Requirements
 1. Type safety throughout the application using TypeScript
 2. Proper error handling for API requests
-3. Responsive design for different screen sizes 
+3. Responsive design for different screen sizes
+
+## User Story: Complaint Form
+
+### Description
+As a user, I want to submit a complaint through a structured form to report issues I'm experiencing with the service.
+
+### Detailed Requirements
+
+#### UI Components
+1. Form Container
+   - White background with rounded corners
+   - Box shadow for elevation effect
+   - Adequate padding for content spacing
+2. Form Header
+   - Clear, prominent title ("Complaint Form")
+   - Information section with username, date and status
+3. Form Fields
+   - Complaint text area with adequate space for detailed descriptions
+   - Character limit indicator for the complaint text
+   - Form grid layout with consistent spacing
+4. Action Buttons
+   - Cancel button (gray) to dismiss the form
+   - Submit button (orange) to send the complaint
+   - Submit button disabled state when conditions not met
+   - Hover effects for interactive feedback
+
+#### Interaction
+1. Form Validation
+   - Submit button disabled until complaint text is entered
+   - User must be logged in to submit a complaint
+   - Minimum characters required for submission
+2. Submission Process
+   - Handles form submission with appropriate action
+   - Displays confirmation or error messages
+   - Tracks complaint status (New, In Progress, Resolved)
+
+#### Non-Functional Requirements
+1. Visual Design
+   - Clean, organized layout with proper spacing
+   - Consistent color scheme with the application
+   - Typography hierarchy for readability
+2. Responsive Design
+   - Adapts to different screen sizes
+   - Maintains usability on mobile devices 
