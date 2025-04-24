@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ username, onLogout }) => {
           <button className="logout-button" onClick={onLogout}>
             Logout
           </button>
-          <div className="user-avatar" title={username}>
+          <div className="user-avatar" title={username || 'User'}>
             <User size={24} color="#333" />
           </div>
         </div>

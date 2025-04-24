@@ -9,5 +9,6 @@ router.get('/hello', helloController.getHello);
 
 // Auth endpoints
 router.post('/login', authController.login);
+router.get('/users/:username', authController.getUserInfo);
 
 export { router as apiRoutes }; 

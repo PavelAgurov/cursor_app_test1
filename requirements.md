@@ -1,5 +1,42 @@
 # Full-Stack TypeScript Application Requirements
 
+## Application Architecture
+
+### Backend Structure
+1. **Controllers Layer**
+   - Responsible for handling HTTP requests and responses
+   - Contains controller modules for different domains (auth, hello)
+   - Maps routes to business logic in services
+
+2. **Services Layer**
+   - Implements business logic
+   - Abstracts data access operations
+   - Handles validation and business rules
+
+3. **Data Access Layer**
+   - Manages data storage and retrieval
+   - Abstracts the underlying data storage mechanism (YAML files)
+   - Provides a clean interface for services to interact with data
+
+4. **Type Definitions**
+   - Provides TypeScript interfaces for data structures
+   - Ensures type safety throughout the application
+   - Facilitates documentation and code understanding
+
+### Frontend Structure
+1. **Components**
+   - Reusable UI elements (Header, Dashboard Items, etc.)
+   - Self-contained with their own styling
+   - Follows component-based architecture principles
+
+2. **Hooks**
+   - Custom React hooks for shared functionality
+   - Manages authentication state and other cross-cutting concerns
+
+3. **Types**
+   - TypeScript interfaces for data structures and props
+   - Ensures type safety and improves developer experience
+
 ## User Story: Login Authentication
 
 ### Description
@@ -25,11 +62,14 @@ As a user, I want to authenticate with a username and password before accessing 
 #### Backend
 1. Authentication API
    - POST `/api/login`: Validates user credentials
+   - GET `/api/users/:username`: Returns user information
 2. User data storage
    - Users stored in `data/users.yaml` file
    - Each user has username and password fields
+   - Data access layer abstracts YAML file operations
 3. Response Format
    - JSON object with `success` and `message` fields
+   - User data included in successful responses
 
 #### Non-Functional Requirements
 1. Visual Design
