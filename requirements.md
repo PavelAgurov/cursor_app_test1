@@ -37,6 +37,55 @@ As a user, I want to authenticate with a username and password before accessing 
    - Label color: #FF924E
    - Responsive design for different screen sizes
 
+## User Story: Dashboard Layout
+
+### Description
+As an authenticated user, I want to see a dashboard with various service options organized in a grid layout.
+
+### Detailed Requirements
+
+#### UI Components
+1. Mobile-like status bar
+   - Current time display
+   - Signal and battery indicators
+2. Header
+   - Menu button (non-functional in this version)
+   - "My dashboard" title
+   - User avatar icon
+   - Background color: #FFCE7D
+3. Dashboard grid
+   - Six card items in a 2x3 grid layout
+   - Each card with icon, title, and description
+   - Card background color: #EEF3FF
+4. Cards include:
+   - Promotions: Find best suitable promotions for your needs
+   - Raise a query: Having a trouble? Raise a query to our service desk
+   - Policies: Get detailed information about policies in Odido
+   - Benefits: Get detailed information about policies in Odido
+   - Two placeholder cards with "Title" and Lorem ipsum text
+5. Chat button
+   - Fixed position in bottom-right corner
+   - Circular button with message icon
+   - Background color: #FFAE7C
+6. Logout button
+   - Positioned at the bottom of the screen
+   - Allows user to sign out
+
+#### Data Structure
+1. Dashboard items defined with:
+   - ID for unique identification
+   - Title for display
+   - Description text
+   - Icon identifier
+
+#### Non-Functional Requirements
+1. Responsive design
+   - Single column layout on smaller screens
+   - Two-column grid on larger screens
+2. Visual consistency
+   - Consistent spacing and alignment
+   - Common color scheme across the application
+
 ## User Story: Hello Button Functionality
 
 ### Description
