@@ -37,6 +37,37 @@ As a user, I want to authenticate with a username and password before accessing 
    - Label color: #FF924E
    - Responsive design for different screen sizes
 
+## User Story: Shared Header Component
+
+### Description
+As a developer, I want to have a reusable header component that can be shared across different pages of the application.
+
+### Detailed Requirements
+
+#### UI Components
+1. Header Container
+   - Background color: #FFF0D7
+   - Fixed position at the top of all pages
+   - Consistent visual style across the application
+2. Header Content
+   - Menu button on the left side (hamburger icon)
+   - Page title (e.g., "My dashboard")
+   - Logout button positioned on the right
+   - User avatar on the far right
+3. Interaction
+   - Hover animations for interactive elements
+   - Logout functionality accessible from any page
+   - Consistent positioning and styling
+
+#### Implementation Details
+1. Reusable React Component
+   - Accepts props for username and logout function
+   - Self-contained styling
+   - Designed for easy integration with different pages
+2. Responsive Design
+   - Adapts to different screen sizes
+   - Maintains usability on mobile devices
+
 ## User Story: Dashboard Layout
 
 ### Description
@@ -45,31 +76,25 @@ As an authenticated user, I want to see a dashboard with various service options
 ### Detailed Requirements
 
 #### UI Components
-1. Mobile-like status bar
-   - Current time display
-   - Signal and battery indicators
-2. Header
-   - Menu button (non-functional in this version)
+1. Header (uses shared Header component)
+   - Menu button
    - "My dashboard" title
-   - User avatar icon
-   - Background color: #FFCE7D
-3. Dashboard grid
+   - Logout button
+   - User avatar
+2. Dashboard grid
    - Six card items in a 2x3 grid layout
    - Each card with icon, title, and description
    - Card background color: #EEF3FF
-4. Cards include:
+3. Cards include:
    - Promotions: Find best suitable promotions for your needs
    - Raise a query: Having a trouble? Raise a query to our service desk
    - Policies: Get detailed information about policies in Odido
    - Benefits: Get detailed information about policies in Odido
    - Two placeholder cards with "Title" and Lorem ipsum text
-5. Chat button
+4. Chat button
    - Fixed position in bottom-right corner
    - Circular button with message icon
    - Background color: #FFAE7C
-6. Logout button
-   - Positioned at the bottom of the screen
-   - Allows user to sign out
 
 #### Data Structure
 1. Dashboard items defined with:
@@ -85,6 +110,9 @@ As an authenticated user, I want to see a dashboard with various service options
 2. Visual consistency
    - Consistent spacing and alignment
    - Common color scheme across the application
+3. Animation
+   - Hover effects for interactive elements
+   - Smooth transitions for better user experience
 
 ## User Story: Hello Button Functionality
 

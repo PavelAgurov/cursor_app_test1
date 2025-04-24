@@ -1,7 +1,5 @@
 import React from 'react';
 import { 
-  Menu, 
-  User, 
   MessageSquare,
   Award,
   AlertTriangle,
@@ -11,6 +9,7 @@ import {
   Box
 } from 'react-feather';
 import { dashboardItems } from '../data/dashboardData';
+import Header from './Header';
 import './Dashboard.css';
 
 interface DashboardProps {
@@ -41,19 +40,7 @@ const Dashboard: React.FC<DashboardProps> = ({ username, onLogout }) => {
 
   return (
     <div className="dashboard">
-      <header className="dashboard-header">
-        <div className="header-left">
-          <button className="menu-button" aria-label="Menu">
-            <Menu size={24} color="#333" />
-          </button>
-          <h1 className="dashboard-title">My dashboard</h1>
-        </div>
-        <div className="header-right">
-          <div className="user-avatar">
-            <User size={24} color="#333" />
-          </div>
-        </div>
-      </header>
+      <Header username={username} onLogout={onLogout} />
       
       <main className="dashboard-content">
         <div className="dashboard-grid">
@@ -72,12 +59,6 @@ const Dashboard: React.FC<DashboardProps> = ({ username, onLogout }) => {
       <div className="chat-button-container">
         <button className="chat-button" aria-label="Chat">
           <MessageSquare size={24} color="#fff" />
-        </button>
-      </div>
-      
-      <div className="logout-container">
-        <button className="logout-button" onClick={onLogout}>
-          Logout
         </button>
       </div>
     </div>
