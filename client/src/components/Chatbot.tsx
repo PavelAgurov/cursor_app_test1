@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Grid, Mic, Send } from 'react-feather';
+import axios from 'axios';
 import './Chatbot.css';
 
 interface ChatbotProps {
@@ -11,11 +12,13 @@ interface Message {
   id: string;
   text: string;
   sender: 'bot' | 'user';
+  timestamp?: string;
 }
 
 const Chatbot: React.FC<ChatbotProps> = ({ username, onClose }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   // Add initial greeting message when the component mounts
@@ -23,7 +26,8 @@ const Chatbot: React.FC<ChatbotProps> = ({ username, onClose }) => {
     const initialGreeting: Message = {
       id: '1',
       text: `Hey ${username || 'there'}, good morning! What can I help you with? Type in your query and I'll assist you.`,
-      sender: 'bot'
+      sender: 'bot',
+      timestamp: new Date().toISOString()
     };
     
     setMessages([initialGreeting]);
@@ -38,28 +42,58 @@ const Chatbot: React.FC<ChatbotProps> = ({ username, onClose }) => {
     setInputValue(e.target.value);
   };
   
-  const handleSendMessage = () => {
-    if (inputValue.trim() === '') return;
+  const handleSendMessage = async () => {
+    if (inputValue.trim() === '' || isLoading) return;
     
+    // Create the user message
     const userMessage: Message = {
       id: Date.now().toString(),
       text: inputValue,
-      sender: 'user'
+      sender: 'user',
+      timestamp: new Date().toISOString()
     };
     
+    // Add the user message to the chat
     addMessage(userMessage);
     setInputValue('');
+    setIsLoading(true);
     
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse: Message = {
+    try {
+      // Send the message to the backend API
+      const response = await axios.post('/api/chat/message', {
+        message: userMessage.text,
+        username: username || 'guest'
+      });
+      
+      if (response.data.success) {
+        // Add the bot response to the chat
+        addMessage(response.data.message);
+      } else {
+        // Handle error response
+        const errorMessage: Message = {
+          id: Date.now().toString(),
+          text: 'Sorry, something went wrong. Please try again later.',
+          sender: 'bot',
+          timestamp: new Date().toISOString()
+        };
+        
+        addMessage(errorMessage);
+      }
+    } catch (error) {
+      console.error('Error sending message to API:', error);
+      
+      // Add error message to the chat
+      const errorMessage: Message = {
         id: Date.now().toString(),
-        text: `Thanks for your message. Our team will get back to you shortly regarding: "${userMessage.text}"`,
-        sender: 'bot'
+        text: 'An error occurred while processing your message. Please try again.',
+        sender: 'bot',
+        timestamp: new Date().toISOString()
       };
       
-      addMessage(botResponse);
-    }, 1000);
+      addMessage(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
   
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -96,6 +130,16 @@ const Chatbot: React.FC<ChatbotProps> = ({ username, onClose }) => {
           </div>
         ))}
         
+        {isLoading && (
+          <div className="message bot-message">
+            <div className="message-content typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        )}
+        
         <div ref={messagesEndRef} />
       </div>
       
@@ -106,11 +150,16 @@ const Chatbot: React.FC<ChatbotProps> = ({ username, onClose }) => {
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
+          disabled={isLoading}
         />
         <button className="mic-button">
           <Mic size={20} color="#000" />
         </button>
-        <button className="send-button" onClick={handleSendMessage}>
+        <button 
+          className="send-button" 
+          onClick={handleSendMessage}
+          disabled={isLoading || inputValue.trim() === ''}
+        >
           <Send size={20} color="#578FFF" />
         </button>
       </div>
